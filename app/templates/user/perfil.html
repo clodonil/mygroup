@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1> Perfil </h1>
+
+
+{% for group in user.group %}
+<p>
+	Lista de Grupos:
+  <ul>
+  	 <li>Titulo: {{ group.titulo }} (<a href="{{url_for('user.sair_group', emp_id = group.id)}}"> Sair </a>)
+     
+  </ul>
+</p>
+{% endfor %}
+  
+
+<form action="" method="post" name="new">
+          {{form.hidden_tag() }}
+      <p>
+           {% for error in form.errors %}
+                   <span style="color: red;">[{{ error }}] </span>
+                {%  endfor%} <br>
+       </p>
+            <h1> Inscreva-se !!!! </h1>
+            <p> Nome <br/>              
+                {{ form.group }}
+             </p>
+             
+               <p>
+                <button  class="btn btn-primary">
+                      <i class="icon-save icon-only bigger-180"></i>                     
+                    Inscrever
+                 </button >
+                </p>
+      </form>
+
+
+
+
+{% endblock %}      

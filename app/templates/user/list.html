@@ -1,0 +1,12 @@
+<h1> Lista de Usuários </h1>
+
+
+{% for user in group.members %}
+<p>
+  <ul>
+  	 <li>Titulo: {{ user.nome }} (<a href="{{url_for('user.edit', emp_id = user.id)}}"> edit </a>, <a href="{{url_for('user.delete', emp_id = user.id)}}"> del </a>)</li>
+     <li> E-mail: {{ user.email }} </li>
+  </ul>
+</p>
+{% endfor %}
+  

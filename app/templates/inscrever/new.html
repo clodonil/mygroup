@@ -1,0 +1,24 @@
+    <form action="" method="post" name="new">
+          {{form.hidden_tag() }}
+      <p>
+           {% for error in form.errors %}
+                   <span style="color: red;">[{{ error }}] </span>
+                {%  endfor%} <br>
+       </p>
+            <p> Nome <br/>              
+                {{ form.nome }}
+             </p>
+             <p> Email: </br>   
+                 {{ form.email }}
+              <p>   
+              <p> Celular: </br>   
+                 {{ form.celular }}
+              <p>   
+ 
+               <p>
+                <button  class="btn btn-primary">
+                      <i class="icon-save icon-only bigger-180"></i>                     
+                    Salvar
+                 </button >
+                </p>
+      </form>

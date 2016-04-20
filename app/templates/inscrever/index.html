@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+
+ <form action="" method="post" name="new">
+          {{form.hidden_tag() }}
+      <p>
+           {% for error in form.errors %}
+                   <span style="color: red;">[{{ error }}] </span>
+                {%  endfor%} <br>
+       </p>
+            <h1> Inscreva-se !!!! </h1>
+            <p> Nome <br/>              
+                {{ form.group }}
+             </p>
+             
+               <p>
+                <button  class="btn btn-primary">
+                      <i class="icon-save icon-only bigger-180"></i>                     
+                    Inscrever
+                 </button >
+                </p>
+      </form>
+
+<h1> Lista de Grupos </h1>
+
+
+{% for group in groups %}
+<p>
+  <ul>
+     <li>Titulo: {{ group.titulo }} 
+      {% if admin(current_user.id) %}
+          (<a href="{{url_for('group.edit', emp_id = group.id)}}"> edit </a>, <a href="{{url_for('group.delete', emp_id = group.id)}}"> del </a>)
+      {% endif %}    
+      </li>
+     <li> n. de inscritos: <a href="{{url_for('user.list', group_id = group.id)}}"> {{ len_group(group.id)}}</a> </li>
+  </ul>
+</p>
+{% endfor %}
+
+{% if admin(current_user.id) %}  
+<p>
+ <a href="{{url_for('group.new')}}"> NOVO GRUPO </a>
+</p>  
+{% endif %}
+
+
+
+
+
+
+{% endblock %}

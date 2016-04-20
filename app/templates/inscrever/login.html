@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+        <meta charset="utf-8" />
+        {% if title %}
+         <title> {{ title }} - COFRE </title>
+        {% else %}
+         <title> Cofree Admin </title>
+        {% endif %}
+
+
+
+        
+<body>
+   <form action="" method="post" name="login">
+      {{form.hidden_tag() }}
+      {{ form.login(class_="span12", placeholder="Email")}}
+      {{ form.password(class_="span12", placeholder="Token")}}
+	  <button onclick="login;" class="width-35 pull-right btn btn-small btn-primary">
+		<i class="icon-key"></i>
+			Login
+      </button>
+   </form>

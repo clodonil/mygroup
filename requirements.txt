@@ -1,0 +1,8 @@
+flask
+flask-login
+flask-mail
+flask-sqlalchemy
+sqlalchemy-migrate
+flask-wtf
+Werkzeug
+python-dateutil
